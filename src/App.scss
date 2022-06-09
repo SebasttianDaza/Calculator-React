@@ -11,34 +11,74 @@
   @extend .overflow-clip;
 
   .App-Main {
-    width: auto;
+    display: grid;
+    grid-template-rows: .6fr 2fr 2fr;
+    width: 100%;
     height: 100%;
 
     .App-header {
       width: 100%;
-      height: 20%;
-      background-color: $global-background-color;
-
+      background-color: $global-background-color-secondary;
       @extend .overflow-clip;
     }
+
+    .App-content {
+      width: 100%;
+    }
+    
+    .App-content-primary {
+      display: grid;
+      grid-template-areas: "ac ac divider multiplicator" ;
+      grid-gap: .1rem;
+      padding-top: .5rem;
+
+      .ac {
+        grid-area: ac;
+      }
+
+      .divider {
+        grid-area: divider;
+      }
+
+      .multiplicator {
+        grid-area: multiplicator;
+      }
+    }
+
+    .App-content-secondary {
+      display: grid;
+      grid-template-areas: "one two three same" "zero zero number same";
+      grid-gap: .1rem;
+
+      .same {
+        grid-area: same;
+      }
+
+      .number {
+        grid-area: number;
+      }
+
+      .zero {
+        grid-area: zero;
+      }
+    }
+    
+
   }
   
 }
 
 @media screen and (min-width: 900px) {
   .App-Header {
-    width: 30%;
+    width: 25%;
     height: 60vh;
     margin: 0 auto;
     padding: .6rem;
 
     .App-Main {
-      width: 100%;
       height: 100%;
 
       .App-header {
-        width: 100%;
-        height:20%;
         background-color: $global-background-color;
       }
     }

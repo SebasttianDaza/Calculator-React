@@ -8,8 +8,8 @@ const Screen = ({}) => {
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <article className="Screen-main">
-          <div className="Screen-before" />
-          <div className="Screen-current" />
+          <div className="Screen-before">5 + 3 =</div>
+          <div className="Screen-current">8</div>
         </article>
       </ErrorBoundary>
     </>

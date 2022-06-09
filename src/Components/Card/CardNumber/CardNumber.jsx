@@ -4,11 +4,16 @@ import PropTypes from "prop-types";
 import "./Style/CardNumber.scss";
 import ErrorFallback from "../../../Errors/handleErrors";
 
-const CardNumber = ({ content }) => {
+const CardNumber = ({ content, classUnique }) => {
   return (
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <button className="Button">{content}</button>
+        <button className={"Button" + " " + classUnique}>
+          {
+            //lowercase the content
+            content.toLowerCase()
+          }
+        </button>
       </ErrorBoundary>
     </>
   );
@@ -16,6 +21,7 @@ const CardNumber = ({ content }) => {
 
 CardNumber.propTypes = {
   content: PropTypes.string.isRequired,
+  classUnique: PropTypes.string,
 };
 
 export default CardNumber;

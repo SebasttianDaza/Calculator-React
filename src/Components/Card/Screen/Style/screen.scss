@@ -2,9 +2,22 @@
 
 .Screen-main {
     @include display_flex(column, center, center);
-    background-color: $global-background-color;
+    background-color: $global-background-color-secondary;
+    color: #fff;
     width: auto;
     height: 100%;
     @extend .overflow-clip;
 
+    .Screen-before {
+        width: 90%;
+        height: 40%;
+        padding-top: .5rem;
+        @extend .text-right;
+    }
+
+    .Screen-current {
+        height: 60%;
+        width: 90%;
+        @extend .text-right;
+    }
 }

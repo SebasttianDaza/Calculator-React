@@ -5,7 +5,7 @@ import ErrorFallback from "./Errors/handleErrors";
 import CardNumber from "./Components/Card/CardNumber/CardNumber";
 import Screen from "./Components/Card/Screen/screen";
 
-function App() {
+const App = () => {
   return (
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -14,14 +14,28 @@ function App() {
             <header className="App-header">
               <Screen />
             </header>
-            <article className="App-content App-content-primary" />
-            <article className="App-content App-content-secondary" />
-            <article className="App-content App-content-third" />
+            <article className="App-content App-content-primary">
+              <CardNumber content="Hola" classUnique="ac" />
+              <CardNumber content="Hola" classUnique="divider" />
+              <CardNumber content="Hola" classUnique="multiplicator" />
+              <CardNumber content="Hola" />
+              <CardNumber content="Hola" />
+              <CardNumber content="Hola" />
+              <CardNumber content="Hola" />
+            </article>
+            <article className="App-content App-content-secondary">
+              <CardNumber content="Hola" classUnique="one" />
+              <CardNumber content="Hola" classUnique="two" />
+              <CardNumber content="Hola" classUnique="three" />
+              <CardNumber content="Hola" classUnique="same" />
+              <CardNumber content="Hola" classUnique="zero" />
+              <CardNumber content="Hola" classUnique="number" />
+            </article>
           </main>
         </header>
       </ErrorBoundary>
     </>
   );
-}
+};
 
 export default App;
