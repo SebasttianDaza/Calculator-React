@@ -1,0 +1,10 @@
+@import "../../../../scss/abstracts/mixins", "../../../../scss/abstracts/variables", "../../../../scss/abstracts/functions";
+
+.Screen-main {
+    @include display_flex(column, center, center);
+    background-color: $global-background-color;
+    width: auto;
+    height: 100%;
+    @extend .overflow-clip;
+
+}

@@ -1,42 +1,46 @@
-.App {
-  text-align: center;
-}
+@import "./scss/abstracts/variables", "./scss/abstracts/mixins", "./scss/abstracts/functions";
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App-Header {
+  @include display_flex(column, center, center);
+  background-color: $global-background-color-secondary;
+  width: 80%;
+  height: 60vh;
+  margin: 0 auto;
+  padding: .6rem;
+  @extend .overflow-clip;
+
+  .App-Main {
+    width: auto;
+    height: 100%;
+
+    .App-header {
+      width: 100%;
+      height: 20%;
+      background-color: $global-background-color;
+
+      @extend .overflow-clip;
+    }
   }
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+@media screen and (min-width: 900px) {
+  .App-Header {
+    width: 30%;
+    height: 60vh;
+    margin: 0 auto;
+    padding: .6rem;
 
-.App-link {
-  color: #61dafb;
-}
+    .App-Main {
+      width: 100%;
+      height: 100%;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+      .App-header {
+        width: 100%;
+        height:20%;
+        background-color: $global-background-color;
+      }
+    }
+  }  
 }
