@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { ErrorBoundary } from "react-error-boundary";
 
 import "./App.scss";
@@ -5,7 +6,9 @@ import ErrorFallback from "./Errors/handleErrors";
 import CardNumber from "./Components/Card/CardNumber/CardNumber";
 import Screen from "./Components/Card/Screen/screen";
 
-const App = () => {
+const App = ({ data }) => {
+  const { firstPart, secondPart } = data;
+
   return (
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -15,27 +18,39 @@ const App = () => {
               <Screen />
             </header>
             <article className="App-content App-content-primary">
-              <CardNumber content="Hola" classUnique="ac" />
-              <CardNumber content="Hola" classUnique="divider" />
-              <CardNumber content="Hola" classUnique="multiplicator" />
-              <CardNumber content="Hola" />
-              <CardNumber content="Hola" />
-              <CardNumber content="Hola" />
-              <CardNumber content="Hola" />
+              {firstPart.map((child) => {
+                return (
+                  <CardNumber
+                    content={child.content}
+                    classUnique={child.classUnique}
+                    classId={child.classId}
+                    key={child.content}
+                  />
+                );
+              })}
             </article>
             <article className="App-content App-content-secondary">
-              <CardNumber content="Hola" classUnique="one" />
-              <CardNumber content="Hola" classUnique="two" />
-              <CardNumber content="Hola" classUnique="three" />
-              <CardNumber content="Hola" classUnique="same" />
-              <CardNumber content="Hola" classUnique="zero" />
-              <CardNumber content="Hola" classUnique="number" />
+              {secondPart.map((child) => {
+                return (
+                  <CardNumber
+                    content={child.content}
+                    classUnique={child.classUnique}
+                    classId={child.classId}
+                    key={child.content}
+                  />
+                );
+              })}
             </article>
           </main>
         </header>
+        <footer className="App-footer">Develop Sebastian Daza</footer>
       </ErrorBoundary>
     </>
   );
+};
+
+App.propTypes = {
+  data: PropTypes.object,
 };
 
 export default App;

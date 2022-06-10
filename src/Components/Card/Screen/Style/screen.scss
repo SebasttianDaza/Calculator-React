@@ -13,11 +13,13 @@
         height: 40%;
         padding-top: .5rem;
         @extend .text-right;
+        font-size: 1.1rem;
     }
 
     .Screen-current {
         height: 60%;
         width: 90%;
+        font-size: 1.5rem;
         @extend .text-right;
     }
 }

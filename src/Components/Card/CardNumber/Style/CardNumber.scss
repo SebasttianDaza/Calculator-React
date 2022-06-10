@@ -1,2 +1,16 @@
+@import "../../../../scss/abstracts/functions", "../../../../scss/abstracts/variables";
 
+.Button {
+    @extend .cursor-pointer;
+    color: $global-background-color;
+    font-size: 1.2rem;
+    
+    &:hover {
+        border-color: $global-background-color;
+        border: .4px solid $global-background-color;
+        color: $global-background-color-secondary;
+        transform: scale(1.1);
+        transition: all .2s ease-in-out;
+    }
+}
 
