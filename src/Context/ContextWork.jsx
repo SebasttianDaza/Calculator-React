@@ -8,8 +8,10 @@ const ContextWork = React.createContext({
 
 export const ContextWorkProvider = ({ children }) => {
   const [work, setWork] = useState({
-    work: [],
-    result: [],
+    isWork: "",
+    isOperator: "",
+    isAfterWork: "",
+    isResult: [],
   });
 
   return <ContextWork.Provider value={{ work, setWork }}>{children}</ContextWork.Provider>;

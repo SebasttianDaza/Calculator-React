@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import PropTypes from "prop-types";
 
 import "./Style/CardNumber.scss";
-import ContextWork from "../../../Context/ContextWork";
+import useWorkGlobal from "../../../Hooks/useWorkGlobal";
 import ErrorFallback from "../../../Errors/handleErrors";
 
 const CardNumber = ({ content, classUnique, classId }) => {
-  const { work, setWork } = useContext(ContextWork);
+  const [work, setWork] = useWorkGlobal();
   const classCard =
     classId === 1
       ? "background-color-btn"
@@ -19,18 +18,97 @@ const CardNumber = ({ content, classUnique, classId }) => {
 
   const handleClick = (e) => {
     if (e.target.classList.contains("background-color-btn")) {
-      //Contactenar el numero anterior con el actual
-      const newWork = work.work.toString() + content.toString();
-      if (work.work.length < 16) {
+      writeNumber(e);
+    }
+    if (e.target.classList.contains("background-btn-secondary")) {
+      getOperator(e.target.innerText.toString());
+    }
+    if (e.target.classList.contains("background-btn-third")) {
+      removeOperation();
+    }
+    if (e.target.classList.contains("background-btn-fourth")) {
+      getResult();
+    }
+  };
+
+  const writeNumber = (e) => {
+    let newWork;
+    if (work.isOperator === "") {
+      if (work.isWork.length < 16) {
+        newWork = work.isWork.toString() + e.target.innerText.toString();
         setWork((prevState) => {
           return {
             ...prevState,
-            work: newWork,
+            isWork: newWork,
+          };
+        });
+      }
+    } else {
+      if (work.isAfterWork.length < 16) {
+        newWork = work.isAfterWork.toString() + e.target.innerText.toString();
+        setWork((prevState) => {
+          return {
+            ...prevState,
+            isAfterWork: newWork,
           };
         });
       }
     }
-    if (e.target.classList.contains("background-btn-secondary")) {
+  };
+
+  const getOperator = (operators) => {
+    if (work.isOperator !== operators) {
+      setWork((prevState) => {
+        return {
+          ...prevState,
+          isOperator: operators,
+        };
+      });
+    }
+  };
+
+  const removeOperation = () => {
+    //Poner state en cero
+    setWork((prevState) => {
+      return {
+        ...prevState,
+        isWork: "",
+        isOperator: "",
+        isAfterWork: "",
+        isResult: "",
+      };
+    });
+  };
+
+  const getResult = () => {
+    console.log("Response");
+    if (work.isWork !== "" && work.isAfterWork !== "" && work.isOperator !== "") {
+      console.log("Response");
+      let result;
+      switch (work.isOperator) {
+        case "+":
+          result = parseInt(work.isWork) + parseInt(work.isAfterWork);
+          break;
+        case "-":
+          result = parseInt(work.isWork) - parseInt(work.isAfterWork);
+          break;
+        case "x":
+          result = parseInt(work.isWork) * parseInt(work.isAfterWork);
+          break;
+        case "/":
+          result = parseInt(work.isWork) / parseInt(work.isAfterWork);
+          break;
+        default:
+          result = "";
+          break;
+      }
+      console.log(result);
+      setWork((prevState) => {
+        return {
+          ...prevState,
+          isResult: result,
+        };
+      });
     }
   };
 
@@ -46,7 +124,7 @@ const CardNumber = ({ content, classUnique, classId }) => {
 };
 
 CardNumber.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: PropTypes.any,
   classUnique: PropTypes.string,
   classId: PropTypes.number,
 };
