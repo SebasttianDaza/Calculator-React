@@ -12,6 +12,7 @@ export const ContextWorkProvider = ({ children }) => {
     isOperator: "",
     isAfterWork: "",
     isResult: [],
+    isError: false,
   });
 
   return <ContextWork.Provider value={{ work, setWork }}>{children}</ContextWork.Provider>;

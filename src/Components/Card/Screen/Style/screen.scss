@@ -14,6 +14,10 @@
         padding-top: .5rem;
         @extend .text-right;
         font-size: 1.1rem;
+
+        .Screen-Intermedite {
+            margin: 0 .4rem 0 .2rem;
+        }
     }
 
     .Screen-current {

@@ -42,6 +42,8 @@ const CardNumber = ({ content, classUnique, classId }) => {
             isWork: newWork,
           };
         });
+      } else {
+        showError();
       }
     } else {
       if (work.isAfterWork.length < 16) {
@@ -52,6 +54,8 @@ const CardNumber = ({ content, classUnique, classId }) => {
             isAfterWork: newWork,
           };
         });
+      } else {
+        showError();
       }
     }
   };
@@ -81,9 +85,7 @@ const CardNumber = ({ content, classUnique, classId }) => {
   };
 
   const getResult = () => {
-    console.log("Response");
     if (work.isWork !== "" && work.isAfterWork !== "" && work.isOperator !== "") {
-      console.log("Response");
       let result;
       switch (work.isOperator) {
         case "+":
@@ -102,7 +104,6 @@ const CardNumber = ({ content, classUnique, classId }) => {
           result = "";
           break;
       }
-      console.log(result);
       setWork((prevState) => {
         return {
           ...prevState,
@@ -110,6 +111,15 @@ const CardNumber = ({ content, classUnique, classId }) => {
         };
       });
     }
+  };
+
+  const showError = () => {
+    setWork((prevState) => {
+      return {
+        ...prevState,
+        isError: true,
+      };
+    });
   };
 
   return (

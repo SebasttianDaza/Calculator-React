@@ -6,6 +6,7 @@ import ErrorFallback from "@/Errors/handleErrors";
 
 const Screen = ({}) => {
   const [work] = useWorkGlobal();
+
   return (
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
