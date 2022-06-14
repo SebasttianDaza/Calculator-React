@@ -1,57 +1,77 @@
-# markdown-preview
+<h1 align="center">Login with PHP</h1>
+
+<div align="center">
+  <h3>
+    <a href="https://calculator-sebas.netlify.app/">
+      Demo
+    </a>
+    <span> | </span>
+    <a href="https://{[Repo](https://github.com/SebasttianDaza/Calculator-React)}">
+      Solution
+    </a>
+    <span> | </span>
+    <a href="https://emprendeyourlifestyle.com/portafolio/">
+      Website
+    </a>
+  </h3>
+</div>
 
 <p align="center">
   <br>
-  <img src="https://i.imgur.com/Mh13XWB.gif" alt="markdown-preview">
+  <img src="./Public/Images/calculator.png" alt="calculator-react">
   <br>
 </p>
 
-![Last version](https://img.shields.io/github/tag/SebasttianDaza/markdown-preview.svg?style=flat-square)
-[![Coverage Status](https://img.shields.io/coveralls/SebasttianDaza/markdown-preview.svg?style=flat-square)](https://coveralls.io/github/SebasttianDaza/markdown-preview)
-[![NPM Status](https://img.shields.io/npm/dm/markdown-preview.svg?style=flat-square)](https://www.npmjs.org/package/markdown-preview)
+<!-- TABLE OF CONTENTS -->
 
-**NOTE:** more badges availables in [shields.io](https://shields.io/)
+## Table of Contents
 
-> This is a new project with React
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+  - [Built With](#built-with)
+- [How To Use](#how-to-use)
+- [Contact](#contact)
 
-## Install
+<!-- OVERVIEW -->
+
+## Overview
+
+![screenshot](./Public/Image/imageLogin.png)
+
+Website is on state to deployed on Netlify. It's done with different technologies, but the main one is React, also it has the styles with SASS, and handle useContext to has the global state and differents custom hooks.
+
+### Built With
+
+<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+
+- [React](https://reactjs.org/)
+- [CSS](https://vuejs.org/)
+- [Vercel](https://tailwindcss.com/)
+- [React Icons](https://react-icons.netlify.com/)
+- [Vite](https://vitejs.dev/)
+- [SASS](https://sass-lang.com/)
+- [Context API](https://reactjs.org/docs/context.html)
+
+
+## How To Use
+
+<!-- Example: -->
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-$ npm install markdown-preview --save
+# Clone this repository
+$ git clone https://github.com/your-user-name/your-project-name
+
+# Install dependencies
+$ npm install
+$ composer install
+
+# Run the app, you can use nginx or apache
 ```
 
-## Usage
+## Contact
 
-```js
-const markdownPreview = require('markdown-preview')
-
-markdownPreview('do something')
-// => return something
-```
-
-## API
-
-### markdownPreview(input, [options])
-
-#### input
-
-*Required*<br>
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-## License
-
-**markdown-preview** © [Sebastian Daza](https://emprendeyourlifestyle.com), released under the [MIT](https://github.com/SebasttianDaza/markdown-preview/blob/master/LICENSE.md) License.<br>
-Authored and maintained by [Sebastian Daza](https://emprendeyourlifestyle.com) with help from [contributors](https://github.com/SebasttianDaza/markdown-preview/contributors).
-
-> [emprendeyourlifestyle.com](https://emprendeyourlifestyle.com) · GitHub [Sebastian Daza](https://github.com/SebasttianDaza) · Twitter [@SebasttianDaza](https://twitter.com/SebasttianDaza)
+- Website [emprendeyourlifestyle.com](https://emprendeyourlifestyle.com/)
+- GitHub [@SebasttianDaza](https://github.com/SebasttianDaza)
+- Twitter [@SebasttianDaza](https://twitter.com/SebasttianDaza)

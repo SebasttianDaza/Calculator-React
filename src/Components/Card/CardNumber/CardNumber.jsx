@@ -2,8 +2,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import PropTypes from "prop-types";
 
 import "./Style/CardNumber.scss";
-import useWorkGlobal from "../../../Hooks/useWorkGlobal";
-import ErrorFallback from "../../../Errors/handleErrors";
+import useWorkGlobal from "@/Hooks/useWorkGlobal";
+import ErrorFallback from "@/Errors/handleErrors";
 
 const CardNumber = ({ content, classUnique, classId }) => {
   const [work, setWork] = useWorkGlobal();
